@@ -1880,8 +1880,9 @@ let ttsChildProcess: ChildProcess | null = null;
 function startLocalTTSServer(): void {
   if (ttsChildProcess) return;
 
-  const ttsServerDir = path.resolve(import.meta.dirname, "..", "omnivoice-server");
-  const modelPath = path.resolve(import.meta.dirname, "..", "checkpoints");
+  const projectRoot = process.cwd();
+  const ttsServerDir = path.resolve(projectRoot, "omnivoice-server");
+  const modelPath = path.resolve(projectRoot, "checkpoints");
 
   console.log("[TTS] Starting local OmniVoice server...");
   ttsChildProcess = spawn("python", ["server.py", "--model-path", modelPath, "--port", "8000"], {

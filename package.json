@@ -1,8 +1,10 @@
 {
   "name": "mimo-voiceclone-debugger",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "main": "electron/main.cjs",
+  "description": "基于节点连线的可视化音频工作站，支持本地OmniVoice语音克隆 + DeepSeek LLM推理 + 智能有声书系统",
+  "author": "linghuchong2048（二创），原作者: Claude Code + MiMo API",
   "type": "module",
   "scripts": {
     "dev": "concurrently -k -n server,client -c cyan,magenta \"npm:dev:server\" \"npm:dev:client\"",
@@ -33,6 +35,8 @@
         "to": "server"
       }
     ],
+    "npmRebuild": false,
+    "nodeGypRebuild": false,
     "win": {
       "target": "nsis",
       "signAndEditExecutable": false
